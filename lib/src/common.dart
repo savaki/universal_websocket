@@ -34,9 +34,14 @@ abstract class BaseWebSocket {
 
 Duration exponential(Duration d) {
   if (d == null) {
-    return Duration(seconds: 5);
+    return const Duration(milliseconds: 500);
   }
-  return d;
+
+  if (d.inSeconds > 60) {
+    return const Duration(seconds: 60);
+  }
+
+  return d * 2;
 }
 
 void defaultComplete() {}
