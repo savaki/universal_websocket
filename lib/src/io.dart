@@ -40,6 +40,7 @@ class WebSocket extends BaseWebSocket {
       print('websocket:connected');
     }
 
+    _delay = null;
     _webSocket = webSocket;
     this.onConnect(webSocket.add);
 
